@@ -1,0 +1,599 @@
+## intent:greet
+- xin chào
+- chào bạn
+- trào
+- hello
+- hey
+- hú
+- mình có vài câu hỏi
+- cho minh hoi chut
+- có ai giúp mình không
+- bạn ơi
+- anh ơi
+- chị ơi
+- cháu ơi
+- em ơi
+- hế lô
+- hầy
+- hêy
+- chào 
+- hi 
+- có ai ở đây không?
+- mình làm quen được không?
+
+## intent:introduce
+- [anh](prefix_name) là [Giang](customer_name)
+- [anh](prefix_name) là [Đỗ Văn Lộc](customer_name)
+- [anh](prefix_name) là [Minh Dương](customer_name)
+- gọi [anh](prefix_name) là [Duy](customer_name)
+- cứ gọi [anh](prefix_name) là [Phạm Văn Hùng](customer_name)
+- [anh](prefix_name) tên là [Hoàng Quang](customer_name)
+- [chị](prefix_name) là [Nhung](customer_name)
+- gọi [chị](prefix_name) là [Nguyễn Thị Hà](customer_name)
+- mọi người gọi [chị](prefix_name) là [Phương Idols](customer_name)
+- tên [chụy](prefix_name) là [Nhung](customer_name)
+- mẹ gọi [em](prefix_name) là [Quang](customer_name)
+- [em](prefix_name) tên [Lê Văn Quang](customer_name)
+- tôi là [Gì đấy](customer_name)
+- tôi tên là [Người nổi tiếng](customer_name)
+- tôi tên [Hùng](customer_name)
+- [Huy](customer_name)
+- [Văn Hải](customer_name)
+- [phạm văn huy](customer_name)
+- gọi tôi là [anh đẹp chai](customer_name)
+- đừng quan tâm
+- k cần để ý đâu
+- đừng bận tâm
+- k quan trọng
+- đừng để ý
+- no vấn đề
+- no problem
+- đừng lo
+- quan tâm chi
+
+## intent:ask_view_menu
+- cho a xem lại menu phát
+- chị cần xem menu
+- menu
+- cho t xem menu
+- show menu đê bot
+- bot cho xem menu
+- shop cho mình xem lại menu
+- t muốn xem menu
+- tôi muốn xem menu
+- menu đâu
+- quay lại menu
+- show menu đi bot
+- em cho a xem lại menu
+- cháu cho chú coi lại menu
+- menu đâu e ơi
+
+## intent:ask_find_shoe
+- tôi cần tìm giày
+- a muốn tìm 1 đôi giày
+- e cần tìm 1 đôi giày
+- a cần tìm vài đôi giày
+- tìm hộ a vài đôi giày
+- tìm hộ tao vài đôi giày đê
+- cho a tìm đôi giày
+- cho tìm đôi giày
+- find hộ a đôi giày
+- search cho đôi giày phát
+- tìm hộ đôi giày phát
+- tìm cho t đôi giày
+- chú cần tìm 1 đôi giày
+
+#intent:ask_specific_shoe
+- tôi muốn xem mẫu [B152](shoe_model) id [4](shoe_id)
+- cho a xem mẫu [GLV1121](shoe_model) id [5](shoe_id)
+- a muốn xem mẫu [B152](shoe_model) id [10](shoe_id)
+- tôi cần xem mẫu [B967](shoe_model) id [11](shoe_id)
+- tôi cần đôi mẫu [A123](shoe_model) id [43](shoe_id)
+- tôi muốn xem mẫu [GLV14](shoe_model) id [20](shoe_id)
+- tôi muốn xem model [X45](shoe_model) id [35](shoe_id)
+- model [X45](shoe_model) id [35](shoe_id)
+- mẫu [A45](shoe_model) id [35](shoe_id)
+- mẫu [BT134](shoe_model) id [35](shoe_id)
+- chị muốn mẫu [GL3322](shoe_model) id [19](shoe_id)
+- chú cần mẫu [GL3322](shoe_model) id [19](shoe_id)
+- chị lấy mẫu [AGD](shoe_model) id [19](shoe_id)
+- chị muốn mẫu [GV08](shoe_model) id [19](shoe_id)
+
+## intent:ask_list_category
+- bạn có giày gì?
+- em có những loại giày gì?
+- bạn có những loại giày nào?
+- bạn có nhiều giày không?
+- có giày gì?
+- có nhiều giày không?
+- có nhiều loại giày không?
+- cho tôi xem bạn có giày gì?
+- cho tôi xem bạn có những loại giày nào?
+- cho anh xem category giày nào?
+- cho tôi xem list category giày
+- category giày có gì?
+- cho chị xem có những loại giày nào?
+- cho anh xem em có gì?
+- cửa hàng có những loại giày nào?
+- cửa hàng có nhiều giày không?
+- cho mình xem category giày đi shop
+- shop có những loại giày nào?
+- shop cho xem những loại giày mà shop có đi
+- cho tôi xem shop có gì?
+- shop có giày gì?
+
+## intent:ask_new_shoe
+- cho mình xem giày mới nhập
+- xem giày mới nhập
+- giày nào mới về?
+- anh cần xem giày mới
+- đôi giày nào mới ra thế e ơi
+- giày nào mới nhập?
+- giày nào mới vậy
+- giày mới về đâu
+- anh cần xem giày mới
+- em có đôi giày nào mới k?
+- có đôi nào mới k em
+- tớ cần đôi giày mới
+- tôi cần xem giày mới
+- cho tao xem giày mới
+- m mới nhập giày gì
+- cửa hàng mới nhập mặt hàng nào
+- có đôi nào mới ra k?
+- đôi nào mới ra vậy?
+- a cần xem đôi nào mới ra
+- bạn mới nhập đôi nào thế
+- có đôi nào mới về k e ơi
+
+## intent:ask_hot_shoe
+- đôi nào đang hot thế e ơi?
+- cho a xem mấy đôi giày đang hot nào
+- e ơi cho chị xem có đôi giày nào đang hot k?
+- đôi giày nào đang hot vậy e
+- đôi nào đang hot vậy em
+- đôi nào đang được yêu thích nhất vậy em?
+- đôi giày nào bán chạy thế?
+- giày nào được nhiều ng xem nhất thế
+- cho a xem vài đôi giày đang hot đi
+- a cần xem mấy đôi giày đang hot
+- tớ cần mua mấy đôi giày đang bán chạy
+- em cần coi mấy đôi đang đc yêu thích ấy
+- quăng tao đôi giày hot
+- đôi giày nào đang hot thế em?
+- cháu ơi cho cô xem mấy đôi giày nào đang được bán chạy đi
+- em ơi cho chị xem mấy đôi giày đang được yêu thích ấy
+
+## intent:ask_coupon
+- có mã giảm giá k bạn?
+- cho mình xem mã giảm giá
+- có mã giảm giá mới k?
+- có mã giảm giá nào k?
+- mã giảm giá đâu?
+- e có mã giảm giá k?
+- b có khuyến mãi gì k?
+- có khuyến mãi gì k?
+- có khuyến mại gì k?
+- k có khuyến mại gì à?
+- k khuyến mại gì à?
+- có khuyến mại k thế?
+- b có coupon gì k?
+- cho xin cái coupon
+- cho xin cái voucher
+- b có voucher k?
+- shop có khuyến mãi gì k?
+- có khuyến mãi k vậy?
+- giảm gía đi bạn
+- có giảm giá k
+- b có mã giảm giá k?
+- e có mã giảm giá k
+- cháu có mã giảm giá k
+- đang có chương trình khuyến mại k?
+- b đang có khuyến mại gì k?
+- mày k có khuyến mại gì à?
+- tao có được giảm giá k?
+- t có đc giảm giá k?
+
+## intent:ask_shoes_by_category
+- cho mình xem giày [bata](shoe_category) đi
+- bạn có bán giày [cao gót](shoe_category) không?
+- bạn có giày [cao gót](shoe_category) không?
+- bạn có giày [lười](shoe_category) hay gì không?
+- bạn có giày [thể thao](shoe_category) k vậy
+- shop có giày [cao gót](shoe_category) không
+- em có giày [gucci](shoe_category) không?
+- cháu có giày [guci](shoe_category) không?
+- bạn ới có giày [gúc cì](shoe_category) không thế
+- bạn ới có giày [da](shoe_category) k thế
+- e có đôi giày [lười](shoe_category) nào không?
+- shop có bán giày [thể thao](shoe_category) không
+- có giày [bata](shoe_category) không?
+- có giày [vải](shoe_category) không shop?
+- bot có đôi giày [da](shoe_category) nào không?
+- chú em có bán giày [thể thao](shoe_category) k?
+- có đôi giày [xăng đan](shoe_category) nào không e ới
+- giày [thượng đình](shoe_category) có không
+- giày [vải](shoe_category) có bán không
+- giày [thể thao](shoe_category) có bán không em?
+- giày [thể thao](shoe_category) không có à bạn?
+- giày [bata](shoe_category)
+- giày [cho trẻ em](shoe_category)
+- có bán giày [thể thao](shoe_category) không bạn?
+- có bán giày [cao gót](shoe_category) không thế?
+- có đôi giày [vải](shoe_category) nào không?
+- e ơi có đôi giày [sandal](shoe_category) nào không?
+
+## intent:ask_shoe_by_color
+- có đôi màu [đỏ](shoe_color) không?
+- có đôi màu [cầu vồng](shoe_color) không?
+- bạn có đôi màu [vàng](shoe_color) không
+- em có đôi màu [đen](shoe_color) k
+- shop có đôi màu [tím](shoe_color) không?
+- đôi màu [pink](shoe_color) còn không shop?
+- đôi màu [nâu](shoe_color) còn k?
+- đôi màu [đen](shoe_color) có không?
+- màu [tím](shoe_color) có không bạn?
+- màu [hồng](shoe_color)
+- màu [cầu vồng](shoe_color)
+- màu [brown](shoe_color) thì sao
+- màu [blue](shoe_color) còn không shop?
+- màu [orange](shoe_color) còn không
+- màu [lục](shoe_color) có k
+- đôi màu [green](shoe_color) còn nhiều không
+- màu [đen](shoe_color) hết rồi à?
+- màu [lam](shoe_color) còn nhiều không bạn
+- cho xem đôi màu [chàm](shoe_color) đi bạn
+- cho xem đôi màu [yellow](shoe_color) được không
+- cho anh xem đôi màu [xanh](shoe_color) đi
+- cho anh xem đôi màu [cầu vồng](shoe_color) coi
+- tôi cần đôi màu [xanh lục](shoe_color)
+- a cần đôi màu [black](shoe_color)
+- cho coi màu [gray](shoe_color) nào
+- cho coi màu [đen](shoe_color)
+- anh thích màu [đen](shoe_color)
+- anh muốn coi màu [xám](shoe_color)
+- thế còn màu [nâu](shoe_color)
+- thế đôi màu [xanh dương](shoe_color) còn không shop
+- thế đôi màu [cầu vồng](shoe_color) thì sao?
+
+## intent:ask_shoe_by_size
+- có cỡ [32](shoe_size) không?
+- có size [32](shoe_size) không?
+- có đôi cỡ [40](shoe_size) không?
+- có size [40](shoe_size) không bạn?
+- có size [40](shoe_size) k bạn?
+- bạn có đôi cỡ [39](shoe_size) không
+- shop có size cỡ [38](shoe_size) không?
+- size [41](shoe_size) còn không shop?
+- size [41](shoe_size) còn k thế
+- size [43](shoe_size) còn k b
+- đôi cỡ [42](shoe_size) có không?
+- đôi cỡ [42](shoe_size) có k?
+- cỡ [40](shoe_size) có không bạn?
+- cỡ [44](shoe_size)
+- [39](shoe_size)
+- size [43](shoe_size)
+- size [43](shoe_size) được k
+- cỡ [43](shoe_size) thì sao
+- cỡ [44](shoe_size) còn không shop?
+- size [45](shoe_size) còn không
+- đôi cỡ [46](shoe_size) còn nhiều không
+- size [47](shoe_size) hết rồi à?
+- cỡ [44](shoe_size) còn nhiều không bạn
+- cho xem đôi cỡ [43](shoe_size) đi bạn
+- cho xem size [39](shoe_size) được không
+- cho anh xem đôi cỡ [40](shoe_size) đi
+- cho anh xem đôi cỡ [41](shoe_size) coi
+- cho coi cỡ [42](shoe_size) nào
+- cho coi size [42](shoe_size) nào
+- cho coi size [42](shoe_size) phát
+- cho coi cỡ [42](shoe_size)
+- mình cuốn size [44](shoe_size)
+- mình cần size [40](shoe_size)
+- anh thích cỡ [41](shoe_size)
+- anh muốn coi cỡ [41](shoe_size)
+- thế còn cỡ [42](shoe_size)
+- thế còn size [42](shoe_size)
+- thế đôi cỡ [44](shoe_size) còn không shop
+- thế đôi cỡ [43](shoe_size) thì sao?
+
+## intent:ask_ok_this_shoe
+- ok a lấy đôi này
+- ok a lấy đôi màu [rainbow](shoe_color)
+- ok a lấy đôi màu [cầu vồng](shoe_color) size [44](shoe_size) nhé
+- cho a đôi này
+- cho a đôi này size [44](shoe_size) nhé
+- cho a đôi này màu [đỏ](shoe_color)
+- cho a đôi này size [41](shoe_size) và màu [cam](shoe_color)
+- cho a đôi này màu [đỏ](shoe_color) size [44](shoe_size) nhé
+- add vào giỏ hàng giúp mình
+- add vào giỏ hàng giúp mình size [42](shoe_size) nhé
+- add vào giỏ hàng giúp mình màu [đỏ](shoe_color)
+- thêm vào giỏ hàng giúp mình
+- thêm vào giỏ hàng giúp mình size [43](shoe_size) nhé
+- thêm vào giỏ hàng giúp mình màu [đỏ](shoe_color)
+- thêm vào giỏ hàng giúp mình cỡ [44](shoe_size) màu [đỏ](shoe_color)
+- thêm vào giỏ hàng giúp mình màu [đỏ](shoe_color) size [44](shoe_size) nhé
+- thêm vào giỏ hàng
+- thêm vào giỏ hàng size [44](shoe_size) giúp a
+- thêm vào giỏ hàng màu [tím](shoe_color)
+- thêm vào giỏ hàng đôi màu [violet](shoe_color) size [44](shoe_size) nhé
+- thêm vào giỏ hàng giúp tôi
+- thêm vào giỏ hàng giúp tôi được không?
+- thêm vào giỏ hàng giúp tôi đôi màu [đỏ](shoe_color) với
+- thêm đôi này vào giỏ hàng cho tôi nhé
+- thêm đôi này vào giỏ hàng màu [đỏ](shoe_color) nhé
+- thêm đôi này vào giỏ hàng đôi cỡ [38](shoe_size) nhé
+- thêm đôi này vào giỏ hàng đôi cỡ [38](shoe_size) màu [xám](shoe_color) nhé
+- lấy cho a đôi này
+- lấy cho a đôi này size [44](shoe_size) nhé
+- lấy cho a đôi này màu [đỏ](shoe_color)
+- lấy cho a đôi này màu [grey](shoe_color) size [43](shoe_size) nhé
+- lấy cho tôi đôi size [44](shoe_size) nhé
+- lấy cho tôi đôi đấy màu [xám](shoe_color)
+- lấy cho a đôi màu [đỏ](shoe_color)
+- lấy cho a đôi màu size [39](shoe_size) [đỏ](shoe_color) nhé
+- lấy cho mình đôi màu [xanh xanh](shoe_color)
+- lấy cho mình đôi màu [trắng xanh](shoe_color) cỡ [44](shoe_size) nhé
+- tôi lấy đôi này
+- tôi lấy đôi này màu [đỏ](shoe_color)
+- cho tôi lấy đôi này
+- cho tôi lấy đôi này size [44](shoe_size) nha
+- cho tôi lấy đôi này cỡ [41](shoe_size) nhé
+- cho tôi lấy đôi này màu [lam](shoe_color)
+- tôi lấy đôi đó
+- tôi lấy đôi màu [hồng](shoe_color) nhé
+- tôi lấy đôi màu [tím](shoe_color)
+- tôi lấy đôi màu [pink](shoe_color) size [40](shoe_size) nha
+- cho tôi lấy đôi giày đó
+- cho tôi lấy đôi giày đó cỡ [44](shoe_size) nhé
+- cho tôi lấy đôi màu [cầu vồng](shoe_color) nhé
+- cho nó vào giỏ hàng giúp mình
+- cho nó vào giỏ hàng giúp mình màu [lục](shoe_color)
+- add vào giỏ hàng
+- add vào giỏ hàng màu [đỏ](shoe_color)
+- add vào giỏ hàng màu [blue](shoe_color) size [42](shoe_size) nhé em
+- add giỏ hàng
+- add giỏ hàng màu [green](shoe_color)
+- add vô giỏ hàng
+- add vô giỏ hàng đôi giày màu [yellow](shoe_color)
+- add vô giỏ hàng đôi màu [black](shoe_color) size [44](shoe_size) hộ mình nha
+- add vô cart
+- add vô cart màu [brown](shoe_color) size [44](shoe_size) giúp tớ nhé
+- add to cart màu [red](shoe_color)
+- add giỏ hàng
+- add giỏ hàng size [44](shoe_size) nha
+- add giỏ hàng size [44](shoe_size) màu [orange](shoe_color) nha
+- add giỏ hàng màu [cam](shoe_color)
+
+## intent:ask_view_cart
+- b ơi check giỏ hàng cho tớ
+- e ơi cho a xem giỏ hàng
+- cart có gì hot
+- check the cart
+- check hộ cái cart phát em
+- check giỏ hàng hộ a phát
+- cart
+- cho tớ xem giỏ hàng phát
+- cho a xem giỏ hàng nào
+- cho a coi giỏ đê e ơi
+- cho a mình check giỏ hàng đi b ơi
+- cho mình xem cart nào
+- cho tớ view giỏ hàng đi bạn
+- cho t check cái cart phát
+- giỏ hàng có gì rồi?
+- giỏ hàng full chưa?
+- giỏ hàng có gì hot
+- giỏ hàng đâu rồi em
+- giỏ hàng
+- giỏ hàng của mình có món này chưa
+- tớ cần check giỏ hàng
+- I want to view my cart
+- I wanna check my cart
+
+## intent:ask_edit_cart
+- cho t sửa lại giỏ hàng phát
+- sửa
+- sửa giỏ hàng
+- edit giỏ hàng
+- sửa cart
+- edit cart
+- t muốn sửa lại giỏ hàng
+- t cần sửa lại cart
+- anh cần sửa lại cart
+- chị muốn sửa giỏ hàng
+
+## intent:ask_shoe_next
+- cho xem đôi khác đi
+- đôi khác
+- không phải đôi này
+- đôi kế tiếp
+- đôi giày khác nào
+- đôi giày khác ấy
+- đôi giày khác
+- cho tôi xem đôi khác
+- cho anh xem đôi khác được k
+- không còn đôi nào khác à
+- k còn đôi nào à
+- k còn đôi khác à
+- hết giày rồi à?
+- đôi khác đê
+- đôi giày khác đê
+- đôi khác đi
+- cho xem đôi giày khác
+- cho coi đôi khác
+- thế k còn đôi nào khác à?
+- thế không còn đôi nào à?
+- còn đôi như thế này k
+- còn đôi nào khác k?
+- đôi khác thì sao?
+- tôi muốn coi đôi khác
+- a muốn xem đôi khác
+- đôi khác cơ
+- tôi cần đôi khác
+- a cần đôi khác 
+
+## intent:ask_shoe_image
+- cho xin ít hình
+- tôi xem ảnh
+- tôi cần xem ảnh
+- a muốn xem hình
+- cho chị xem ảnh demo
+- ảnh demo đi bạn
+- ảnh đâu bạn
+- cho xem hình đi em
+- cho mình xem hình với shop
+- shop cho mình xem hình
+- cho tôi xem ảnh
+- quăng t tấm ảnh
+- cho xem hình đi bạn
+- có hình k bạn
+- có hình k em?
+- có ảnh k
+- ảnh đâu
+- hình đâu
+- cho xem hình ảnh
+- cho tôi xem ảnh
+- cho a xem hình
+- cho xem ảnh
+- cho xem hình
+- a muốn xem hình
+- a cần xem hình
+- hình như nào thế
+- nhìn như nào vậy?
+- hình ảnh ra sao
+- nhìn ra sao?
+- nhìn đẹp k?
+- có đẹp k?
+- trông ra sao
+
+## intent:goodbye
+- bye
+- tạm biệt
+- tạm biệt nhé
+- chào tạm biệt
+- chào tạm biệt em
+- tạm biệt em
+- tạm biệt em nhé
+- gg
+- chào nhé
+
+## intent:thank
+- chuẩn
+- hay
+- siêu
+- hay đấy
+- cảm ơn bot
+- tuyệt
+- cám ơn
+- thanks
+- thank
+- thank you
+- ghê
+- gê
+- cảm ơn bạn
+- khá là gê
+- cảm ơn em
+- cảm ơn em nhiều nhé
+- cảm ơn
+
+## intent:affirm
+- ừ
+- ờm
+- yes
+- yeah
+- được đó
+- được đấy
+- ok
+- ừ được
+- cái này được
+- có vẻ được đó
+- tôi lấy cái này
+- anh lấy cái này
+
+## intent:deny
+- không
+- không cần
+- khỏi cần
+- no
+- nope
+- never
+- xấu quá
+- tệ quá
+- thôi khỏi
+- thôi
+- èo
+- thôi nghỉ
+
+## intent:bot_challenge
+- bạn là bot hả?
+- mày là bot à?
+- hiện đại gê
+- công nghệ xịn xò ha
+- bot xấu hoắc
+- oh robot cơ đấy. đánh nhau không?
+- solo daxua không?
+- xưng danh đê
+- đánh nhau k bot?
+- solo chơi game k?
+
+## intent:ask_help
+- help
+- /help
+- bot help
+- help me
+- lệnh là gì vậy?
+- có lệnh chat không?
+- bạn có thể làm được những gì
+- bạn giúp được gì nào
+- chức năng của bạn là gì
+- bạn có thể làm được mấy chức năng
+- bạn có tư vấn giúp mình được không
+- việc gì bạn làm được
+- kể xem bạn làm được gì
+- cho mình biết bạn làm được gì nhé
+- bạn có ích trong những việc gì
+- chẳng biết bạn làm được gì
+- kể cho mình biết những việc bạn có thể làm được nhé
+- nói cho mình về những việc bạn giúp được mình
+- bạn giúp được mình gì nào
+- bạn có thể làm gì
+- em giúp được gì
+- em làm được gì
+- mày biết làm gì
+- em biết làm gì
+- bạn biết làm gì
+- biết làm gì
+- làm được gì 
+- có làm được trò gì 
+- giúp giúp cái gì
+- làm được gì
+- giúp được gì
+- mày làm được gì
+- có biết gì 
+
+## intent:ask_name
+- bạn tên gì
+- tên gì
+- chị tên gì
+- anh tên gì
+- tên của bạn là gì
+- tên của chị là gì
+- tên của anh là gì
+- cho mình hỏi tên nhé
+- mình muốn biết tên bạn
+- để tiện xưng hộ thì tên bạn là gì
+- cho em xin tên của anh ạ
+- cho em xin tên của chị ạ
+- được biết tên bạn thì tốt nhỉ
+- vui lòng cho mình biết tên nhé
+- xin phép hỏi tên của bạn
+- vậy thì tên bạn là gì
+- tên bạn trong tiếng việt là gì
+- chúng ta nên biết tên nhau nhỉ?
+- em tên là gì thế
+- tên em là gì
+- tên em 
+- tên bạn 
+- bạn tên là gì 
+- bạn tên gì thế
+- em tên gì

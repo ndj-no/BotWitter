@@ -1,0 +1,91 @@
+intents:
+  - greet
+  - introduce
+  - ask_view_menu
+  - ask_find_shoe
+  - ask_new_shoe
+  - ask_hot_shoe
+  - ask_coupon
+  - ask_list_category
+  - ask_shoes_by_category
+  - ask_shoe_by_color
+  - ask_shoe_by_size
+  - ask_ok_this_shoe
+  - ask_shoe_image
+  - goodbye
+  - thank
+  - affirm
+  - deny
+  - bot_challenge
+  - ask_help
+  - ask_name
+  - ask_view_cart
+
+actions:
+  - act_save_name
+  - act_menu
+  - act_show_new_shoe
+  - act_show_hot_shoe
+  - act_get_list_category
+  - act_get_shoes_by_category
+  - act_show_receipt
+  - act_test_anything
+
+entities:
+  - bot_position
+  - prefix_name
+  - customer_name
+  - shoe_id
+  - shoe_model
+  - shoe_name
+  - shoe_size
+  - shoe_color
+  - color_id
+  - shoe_category
+  - shoe_image
+  - shoe_quantity
+  - shoe_cart_position
+
+slots:
+  bot_position:
+    auto_fill: true
+    type: text
+    initial_value: 'Witter Shoe'
+  prefix_name:
+    auto_fill: true
+    type: text
+    initial_value: 'quý khách'
+  customer_name:
+    auto_fill: true
+    type: text
+    initial_value: ''
+  shoe_name:
+    auto_fill: true
+    type: text
+  shoe_size:
+    auto_fill: true
+    type: text
+  shoe_color:
+    auto_fill: true
+    type: text
+    initial_value: ''
+  shoe_category:
+    auto_fill: true
+    type: text
+  shoe_quantity:
+    auto_fill: true
+    type: text
+
+
+responses:
+  utter_greet:
+    - text: "Witter Shoe hân hạn được phục vụ quý khách. Xin hỏi quý khách tên là gì để tiện xưng hô?"
+    - text: "Witter Shoe hân hạnh được phục vụ quý khách. Quý khách xin cho biết họ tên để tiện xưng hô ạ"
+    - text: "Xin chào quý khách. Quý khách xin cho biết họ tên để tiện xưng hô ạ"
+
+  utter_introduce:
+    - text: "Xin chào {prefix_name}{customer_name}. {bot_position} có thể giúp gì được cho {prefix_name} ạ?"
+    - text: "Dạ không biết {prefix_name}{customer_name} cần gì ạ?"
+
+  utter_not_provide_category:
+    - text: "Không biết {prefix_name}{customer_name} muốn xem loại giày gì?"
