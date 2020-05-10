@@ -48,32 +48,33 @@ class ActionShowHotShoe(Action):
             err_message = err_message + 'error code=' + err_code
             dispatcher.utter_message(err_message)
         else:
-            dispatcher.utter_message(text='Dưới đây là top 6 đôi đc mọi người xem và mua nhiều nhất đó ' + prefix_name)
-            horizontal_template_elements = []
-            for index in range(len(shoes)):
-                shoe = shoes[index]
-                detail_shoe = detail_shoes[index]
-
-                buttons = [
-                    PostBackButton(
-                        title='Xem đôi này ' + shoe.shoeModel,
-                        str_send_to_webhook='tôi muốn xem mẫu ' + shoe.shoeModel
-                    ),
-                    UrlButton(
-                        title='Xem trên website',
-                        url_access=MyWebUrl.get_detail_shoe_url(shoe.shoe_id)
-                    ),
-                ]
-
-                element = HorizontalTemplateElement(
-                    image_url=shoe.shoeThumbnail,
-                    title=shoe.shoeName,
-                    subtitle=price_format(detail_shoe.newPrice),
-                    default_action_value='',
-                    list_buttons=buttons,
-                )
-                horizontal_template_elements.append(element)
-            horizontal_template = HorizontalTemplate(horizontal_template_elements)
+            dispatcher.utter_message(text='Dưới đây là top những đôi đc mọi người xem và mua nhiều nhất đó ' + prefix_name)
+            # horizontal_template_elements = []
+            # for index in range(len(shoes)):
+            #     shoe = shoes[index]
+            #     detail_shoe = detail_shoes[index]
+            #
+            #     buttons = [
+            #         PostBackButton(
+            #             title='Xem đôi này ' + shoe.shoeModel,
+            #             str_send_to_webhook='tôi muốn xem mẫu ' + shoe.shoeModel
+            #         ),
+            #         UrlButton(
+            #             title='Xem trên website',
+            #             url_access=MyWebUrl.get_detail_shoe_url(shoe.shoe_id)
+            #         ),
+            #     ]
+            #
+            #     element = HorizontalTemplateElement(
+            #         image_url=shoe.shoeThumbnail,
+            #         title=shoe.shoeName,
+            #         subtitle=price_format(detail_shoe.newPrice),
+            #         default_action='',
+            #         list_buttons=buttons,
+            #     )
+            #     horizontal_template_elements.append(element)
+            # horizontal_template = HorizontalTemplate(horizontal_template_elements)
+            horizontal_template = HorizontalTemplate.from_shoes_shoe_detail_shoe(shoes=shoes, detail_shoes=detail_shoes)
             dispatcher.utter_message(json_message=horizontal_template.to_json_message())
 
             # xem tiep

@@ -1,7 +1,10 @@
-from typing import Text, List, Dict
+from typing import Text, Dict, List
 
 from my_fb_api.base_api import BaseElement, BaseTemplate
-from my_fb_api.button import Button, UrlButton
+from my_fb_api.button import Button, PostBackButton, UrlButton
+from my_models.shoe import Shoe
+from my_models.detail_shoe import DetailShoe
+from my_utils.price_format import price_format
 from my_web_setting.my_web_url import MyWebUrl
 
 
@@ -144,3 +147,32 @@ class HorizontalTemplate(BaseTemplate):
             }
         }
         return message
+
+    @classmethod
+    def from_shoes_shoe_detail_shoe(cls, shoes: List[Shoe], detail_shoes: List[DetailShoe]):
+        horizontal_template_elements = []
+        for index in range(len(shoes)):
+            shoe = shoes[index]
+            detail_shoe = detail_shoes[index]
+
+            buttons = [
+                PostBackButton(
+                    title='Xem đôi này ' + shoe.shoeModel,
+                    str_send_to_webhook='tôi muốn xem mẫu ' + shoe.shoeModel + ' id ' + str(shoe.shoe_id)
+                ),
+                UrlButton(
+                    title='Xem trên website',
+                    url_access=MyWebUrl.get_detail_shoe_url(shoe.shoe_id)
+                ),
+            ]
+
+            element = HorizontalTemplateElement(
+                image_url=MyWebUrl.get_shoe_image_url(shoe.shoeThumbnail),
+                # image_url='https://www.w3schools.com/w3css/img_lights.jpg',
+                title=shoe.shoeName,
+                subtitle=price_format(detail_shoe.newPrice),
+                default_action=HorizontalTemplateElement.DefaultAction(MyWebUrl.get_detail_shoe_url(shoe.shoe_id)),
+                list_buttons=buttons,
+            )
+            horizontal_template_elements.append(element)
+        return cls(horizontal_template_elements)
