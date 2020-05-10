@@ -15,7 +15,6 @@ class ActionIntroduce(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         quick_reply_elements = [
             # text on screen and the text send back to server
-            QuickReplyElement(QuickReplyElement.TEXT, 'Tôi cần tìm giày', 'tôi cần tìm giày'),
             QuickReplyElement(QuickReplyElement.TEXT, 'Xem giày mới nhập', 'có đôi nào mới ra k?'),
             QuickReplyElement(QuickReplyElement.TEXT, 'Xem giày đang hot', 'cho a xem vài đôi giày đang hot đi'),
             QuickReplyElement(QuickReplyElement.TEXT, 'Bạn có giày gì?', 'bạn có giày gì?'),

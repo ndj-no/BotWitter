@@ -13,8 +13,8 @@ def get_connection():
     return connection
 
 
-def get_result(query: Text, class_type) -> List:
-    out = []
+def get_result(query: Text, *class_types) -> List:
+    out = [[] for _ in class_types]
     try:
         conn = get_connection()
         cursor = conn.cursor()
@@ -22,9 +22,14 @@ def get_result(query: Text, class_type) -> List:
         # Thực thi sql và truyền 1 tham số.
         cursor.execute(query)
         for row in cursor:
-            item = class_type(row)
-            out.append(item)
+            for index, class_type in enumerate(class_types):
+                item = class_type(row)
+                out[index].append(item)
     finally:
         # Đóng kết nối
         conn.close()
-    return out
+
+    if len(out) == 1:
+        return out[0]
+    else:
+        return out

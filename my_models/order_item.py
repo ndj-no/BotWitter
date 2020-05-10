@@ -1,6 +1,6 @@
 class OrderItem:
     def __init__(self, data):
-        self.id = -1
+        self.id = None
         self.orderPackage_id = None
         self.detailShoe_id = None
         self.quantity = None

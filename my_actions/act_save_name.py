@@ -6,7 +6,7 @@ from rasa_sdk.executor import CollectingDispatcher
 
 from my_utils.debug import debug
 from my_utils.entitie_name import Entities
-from my_utils.text_vi import no_accent
+from my_utils.text_vi import remove_accents
 
 
 class ActionSaveName(Action):
@@ -23,12 +23,12 @@ class ActionSaveName(Action):
         if prefix_name is not None and prefix_name.strip() != '':
             prefix_name = prefix_name.strip().lower()
 
-        if prefix_name is None or no_accent(prefix_name) in ['tao', 'tui', 'tiu', 'to', 'minh', 'em', 'chau', ]:
+        if prefix_name is None or remove_accents(prefix_name) in ['tao', 'tui', 'tiu', 'to', 'minh', 'em', 'chau', ]:
             prefix_name = 'bạn'
             bot_position = 'mình'
-        elif no_accent(prefix_name) in ['anh', 'chi', 'a', 'c']:
+        elif remove_accents(prefix_name) in ['anh', 'chi', 'a', 'c']:
             bot_position = 'em'
-        elif no_accent(prefix_name) in ['co', 'chu', 'bac', 'ong', 'ba', 'di', 'gi', 'cau', 'cu']:
+        elif remove_accents(prefix_name) in ['co', 'chu', 'bac', 'ong', 'ba', 'di', 'gi', 'cau', 'cu']:
             bot_position = 'cháu'
         else:
             prefix_name = 'bạn'

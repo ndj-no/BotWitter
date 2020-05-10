@@ -61,7 +61,7 @@ class ActionShowHotShoe(Action):
                     ),
                     UrlButton(
                         title='Xem trên website',
-                        url_access=MyWebUrl.get_detail_shoe_url(shoe.id)
+                        url_access=MyWebUrl.get_detail_shoe_url(shoe.shoe_id)
                     ),
                 ]
 

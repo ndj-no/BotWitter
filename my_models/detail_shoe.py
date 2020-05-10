@@ -1,6 +1,6 @@
 class DetailShoe:
     def __init__(self, data):
-        self.detailShoe_id = -1
+        self.detailShoe_id = None
         self.shoe_id = None
         self.color_id = None
         self.size = None

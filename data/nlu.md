@@ -83,7 +83,7 @@
 - tìm cho t đôi giày
 - chú cần tìm 1 đôi giày
 
-#intent:ask_specific_shoe
+##intent:ask_specific_shoe
 - tôi muốn xem mẫu [B152](shoe_model) id [4](shoe_id)
 - cho a xem mẫu [GLV1121](shoe_model) id [5](shoe_id)
 - a muốn xem mẫu [B152](shoe_model) id [10](shoe_id)
@@ -224,40 +224,52 @@
 
 ## intent:ask_shoe_by_color
 - có đôi màu [đỏ](shoe_color) không?
-- có đôi màu [cầu vồng](shoe_color) không?
+- có màu [cầu vồng](shoe_color) k
+- b có đôi màu [cầu vồng](shoe_color) không?
 - bạn có đôi màu [vàng](shoe_color) không
 - em có đôi màu [đen](shoe_color) k
 - shop có đôi màu [tím](shoe_color) không?
 - đôi màu [pink](shoe_color) còn không shop?
-- đôi màu [nâu](shoe_color) còn k?
+- đôi màu [nâu](shoe_color) color_id [8](color_id)
 - đôi màu [đen](shoe_color) có không?
-- màu [tím](shoe_color) có không bạn?
+- màu [tím](shoe_color) có k bạn?
 - màu [hồng](shoe_color)
+- màu [hồng](shoe_color) color_id [10](color_id)
+- lấy màu [hồng](shoe_color)
+- lấy màu [hồng](shoe_color) color_id [1](color_id)
 - màu [cầu vồng](shoe_color)
+- màu [cầu vồng](shoe_color) color_id [5](color_id)
 - màu [brown](shoe_color) thì sao
 - màu [blue](shoe_color) còn không shop?
+- color [blue](shoe_color) color_id [12](color_id)
 - màu [orange](shoe_color) còn không
 - màu [lục](shoe_color) có k
-- đôi màu [green](shoe_color) còn nhiều không
+- color [lục](shoe_color) color_id [3](color_id)
+- đôi color [green](shoe_color) còn nhiều không
 - màu [đen](shoe_color) hết rồi à?
-- màu [lam](shoe_color) còn nhiều không bạn
+- màu [lam](shoe_color) còn nhiều không cháu
 - cho xem đôi màu [chàm](shoe_color) đi bạn
 - cho xem đôi màu [yellow](shoe_color) được không
 - cho anh xem đôi màu [xanh](shoe_color) đi
-- cho anh xem đôi màu [cầu vồng](shoe_color) coi
-- tôi cần đôi màu [xanh lục](shoe_color)
+- cho anh xem đôi màu [cầu vồng](shoe_color) color_id [9](color_id) coi
+- tôi cần đôi [xanh lục](shoe_color)
 - a cần đôi màu [black](shoe_color)
 - cho coi màu [gray](shoe_color) nào
-- cho coi màu [đen](shoe_color)
+- cho coi màu [đen](shoe_color) [6](color_id)
 - anh thích màu [đen](shoe_color)
 - anh muốn coi màu [xám](shoe_color)
 - thế còn màu [nâu](shoe_color)
+- thế còn color [nâu](shoe_color) color_id [2](color_id)
 - thế đôi màu [xanh dương](shoe_color) còn không shop
 - thế đôi màu [cầu vồng](shoe_color) thì sao?
+- tôi lấy màu [đen](shoe_color) 
+- tôi lấy màu [đen](shoe_color) color_id [7](color_id)
+- lấy màu [đen](shoe_color) color_id [4](color_id)
+
 
 ## intent:ask_shoe_by_size
-- có cỡ [32](shoe_size) không?
-- có size [32](shoe_size) không?
+- có cỡ [37](shoe_size) không?
+- có size [38](shoe_size) không?
 - có đôi cỡ [40](shoe_size) không?
 - có size [40](shoe_size) không bạn?
 - có size [40](shoe_size) k bạn?
@@ -272,12 +284,12 @@
 - cỡ [44](shoe_size)
 - [39](shoe_size)
 - size [43](shoe_size)
-- size [43](shoe_size) được k
+- size [39](shoe_size) được k
 - cỡ [43](shoe_size) thì sao
 - cỡ [44](shoe_size) còn không shop?
 - size [45](shoe_size) còn không
 - đôi cỡ [46](shoe_size) còn nhiều không
-- size [47](shoe_size) hết rồi à?
+- size [39](shoe_size) hết rồi à?
 - cỡ [44](shoe_size) còn nhiều không bạn
 - cho xem đôi cỡ [43](shoe_size) đi bạn
 - cho xem size [39](shoe_size) được không
@@ -285,9 +297,9 @@
 - cho anh xem đôi cỡ [41](shoe_size) coi
 - cho coi cỡ [42](shoe_size) nào
 - cho coi size [42](shoe_size) nào
-- cho coi size [42](shoe_size) phát
+- cho coi size [37](shoe_size) phát
 - cho coi cỡ [42](shoe_size)
-- mình cuốn size [44](shoe_size)
+- mình cuốn size [40](shoe_size)
 - mình cần size [40](shoe_size)
 - anh thích cỡ [41](shoe_size)
 - anh muốn coi cỡ [41](shoe_size)
@@ -295,6 +307,7 @@
 - thế còn size [42](shoe_size)
 - thế đôi cỡ [44](shoe_size) còn không shop
 - thế đôi cỡ [43](shoe_size) thì sao?
+- mình lấy size [40](shoe_size)
 
 ## intent:ask_ok_this_shoe
 - ok a lấy đôi này

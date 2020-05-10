@@ -6,6 +6,7 @@ intents:
   - ask_new_shoe
   - ask_hot_shoe
   - ask_coupon
+  - ask_specific_shoe
   - ask_list_category
   - ask_shoes_by_category
   - ask_shoe_by_color
@@ -26,10 +27,14 @@ actions:
   - act_menu
   - act_show_new_shoe
   - act_show_hot_shoe
+  - act_chose_color
+  - act_chose_size
+  - act_add2cart_or_order
   - act_get_list_category
   - act_get_shoes_by_category
   - act_show_receipt
   - act_test_anything
+  - act_show_user_id
 
 entities:
   - bot_position
@@ -41,6 +46,8 @@ entities:
   - shoe_size
   - shoe_color
   - color_id
+  - coupon_code
+  - coupon_id
   - shoe_category
   - shoe_image
   - shoe_quantity
@@ -62,6 +69,12 @@ slots:
   shoe_name:
     auto_fill: true
     type: text
+  shoe_id:
+    auto_fill: true
+    type: text
+  shoe_model:
+    auto_fill: true
+    type: text
   shoe_size:
     auto_fill: true
     type: text
@@ -69,6 +82,15 @@ slots:
     auto_fill: true
     type: text
     initial_value: ''
+  color_id:
+    auto_fill: true
+    type: text
+  coupon_code:
+    auto_fill: true
+    type: text
+  coupon_id:
+    auto_fill: true
+    type: text
   shoe_category:
     auto_fill: true
     type: text

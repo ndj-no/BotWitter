@@ -49,3 +49,5 @@ from my_actions.act_test_anything import ActionTestAnything
 from my_actions.act_menu import ActionIntroduce
 from my_actions.act_show_hot_shoe import ActionShowHotShoe
 from my_actions.act_show_new_shoe import ActionShowNewShoe
+from my_actions.act_chose_color import ActionChoseColor
+from my_actions.act_show_user_id import ActionShowUserId

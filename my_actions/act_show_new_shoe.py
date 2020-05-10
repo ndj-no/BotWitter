@@ -32,18 +32,16 @@ class ActionShowNewShoe(Action):
         """
         # debug('\n_________act_shoe_new_shoe_________')
 
-        prefix_name = tracker.get_slot(Entities.customer_name)
+        prefix_name = tracker.get_slot(Entities.prefix_name)
         customer_name = tracker.get_slot(Entities.customer_name)
         bot_position = tracker.get_slot(Entities.bot_position)
-
-        err_message = f'Xin lỗi {prefix_name}{customer_name}, hệ thống đã xảy ra lỗi. '
 
         query = 'SELECT * FROM NEW_SHOES'
         shoes = SqlUtils.get_result(query, Shoe)
         detail_shoes = SqlUtils.get_result(query, DetailShoe)
         if len(detail_shoes) == 0 or len(shoes) == 0:
             err_code = ErrorCode.ERR_IN_ACT_GET_NEW_SHOE
-            err_message = err_message + 'error code=' + err_code
+            err_message = f'Xin lỗi {prefix_name}{customer_name}, hệ thống đã xảy ra lỗi. error code={err_code}'
             dispatcher.utter_message(text=err_message)
         else:
             dispatcher.utter_message(
@@ -84,9 +82,4 @@ class ActionShowNewShoe(Action):
             quick_replies = QuickReplies(text_before_template='Tùy chọn khác',
                                          list_quick_reply_elements=quick_reply_elements)
             dispatcher.utter_message(json_message=quick_replies.to_json_message())
-
-            # print('*****************************************************')
-            # print(horizontal_template.to_json_message())
-            # print('*****************************************************')
-            # pprint(quick_replies.to_json_message())
         return []

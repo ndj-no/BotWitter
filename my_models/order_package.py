@@ -2,7 +2,7 @@ class OrderPackage:
     TABLE_NAME = 'order_orderpackage'
 
     def __init__(self, data):
-        self.id = -1
+        self.id = None
         self.user_id = None
         self.dateOrder = None
         self.totalPrice = None

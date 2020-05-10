@@ -1,6 +1,6 @@
 class Image:
     def __init__(self, data):
-        self.id = -1
+        self.id = None
         self.shoe_id = None
         self.shoeImage = None
         self.imageDesc = None
