@@ -41,13 +41,13 @@
 # from my_utils.entitie_name import Entities
 
 
-from my_actions.act_get_shoes_by_category import ActionGetShoesByCategory
+from my_actions.act_show_shoes_by_category import ActionShowShoesByCategory
 from my_actions.act_show_receipt import ActionShowReceipt
-from my_actions.act_get_list_categories import ActionGetListCategory
+from my_actions.act_show_list_categories import ActionGetListCategory
 from my_actions.act_save_name import ActionSaveName
 from my_actions.act_test_anything import ActionTestAnything
-from my_actions.act_menu import ActionIntroduce
-from my_actions.act_show_hot_shoe import ActionShowHotShoe
-from my_actions.act_show_new_shoe import ActionShowNewShoe
-from my_actions.act_chose_color import ActionChoseColor
+from my_actions.act_show_menu import ActionIntroduce
+from my_actions.act_show_hot_shoes import ActionShowHotShoes
+from my_actions.act_show_new_shoes import ActionShowNewShoes
+from my_actions.act_choose_color import ActionChooseColor
 from my_actions.act_show_user_id import ActionShowUserId

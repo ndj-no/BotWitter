@@ -3,23 +3,18 @@ from typing import Text, Dict, Any, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-from my_fb_api.HorizontalTemplate import HorizontalTemplateElement, HorizontalTemplate
 from my_fb_api.QuickRepliesTemplate import QuickReplyElement, QuickReplies
-from my_fb_api.button import PostBackButton, UrlButton
 from my_models.color import Color
-from my_models.detail_shoe import DetailShoe
-from my_models.shoe import Shoe
 from my_utils import SqlUtils
-from my_utils.debug import debug, debug_print_content
+from my_utils.debug import debug_print_content
 from my_utils.entitie_name import Entities
 from my_utils.error_code import ErrorCode
-from my_utils.price_format import price_format
 from my_web_setting.my_web_url import MyWebUrl
 
 
-class ActionChoseColor(Action):
+class ActionChooseColor(Action):
     def name(self) -> Text:
-        return 'act_chose_color'
+        return 'act_choose_color'
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -32,7 +27,7 @@ class ActionChoseColor(Action):
         :param domain:
         :return:
         """
-        debug_print_content('__________act_chose_color___________')
+        debug_print_content('__________act_choose_color___________')
 
         prefix_name = tracker.get_slot(Entities.prefix_name)
         customer_name = tracker.get_slot(Entities.customer_name)

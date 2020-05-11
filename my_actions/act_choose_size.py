@@ -11,9 +11,9 @@ from my_utils.entitie_name import Entities
 from my_utils.error_code import ErrorCode
 
 
-class ActionChoseSize(Action):
+class ActionChooseSize(Action):
     def name(self) -> Text:
-        return 'act_chose_size'
+        return 'act_choose_size'
 
     def run(self,
             dispatcher: CollectingDispatcher,
@@ -28,7 +28,7 @@ class ActionChoseSize(Action):
         :param domain:
         :return:
         """
-        debug_print_content('__________act_chose_size___________')
+        debug_print_content('__________act_choose_size___________')
 
         prefix_name = tracker.get_slot(Entities.prefix_name)
         customer_name = tracker.get_slot(Entities.customer_name)

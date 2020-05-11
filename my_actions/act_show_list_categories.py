@@ -10,13 +10,13 @@ from my_utils.debug import debug
 from my_utils.entitie_name import Entities
 
 
-class ActionGetListCategory(Action):
+class ActionShowListCategory(Action):
     """
     get a list of categories
     """
 
     def name(self) -> Text:
-        return "act_get_list_category"
+        return "act_show_list_category"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -26,7 +26,6 @@ class ActionGetListCategory(Action):
         prefix_name = tracker.get_slot(Entities.customer_name)
         customer_name = tracker.get_slot(Entities.customer_name)
         bot_position = tracker.get_slot(Entities.bot_position)
-        shoe_category = tracker.get_slot(Entities.shoe_category)
 
         query = f'SELECT * FROM {Category.TABLE_NAME}'
         categories = SqlUtils.get_result(query, Category)

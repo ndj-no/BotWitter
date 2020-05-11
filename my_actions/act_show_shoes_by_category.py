@@ -8,16 +8,15 @@ from my_models.shoe import Shoe
 from my_utils import SqlUtils
 from my_utils.debug import debug
 from my_utils.entitie_name import Entities
-# from my_utils.table_name import Tables
 
 
-class ActionGetShoesByCategory(Action):
+class ActionShowShoesByCategory(Action):
     """
     get a list of categories
     """
 
     def name(self) -> Text:
-        return "act_get_shoes_by_category"
+        return "act_show_shoes_by_category"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -25,7 +24,7 @@ class ActionGetShoesByCategory(Action):
 
         category = tracker.get_slot(Entities.shoe_category)
 
-        debug('\n_________action_find_shoes_by_category_________')
+        debug('\n_________action_show_shoes_by_category_________')
         debug('category ', category)
 
         if category is None or category.strip() == '':

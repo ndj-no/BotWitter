@@ -6,9 +6,9 @@ from rasa_sdk.executor import CollectingDispatcher
 from my_fb_api.QuickRepliesTemplate import QuickReplies, QuickReplyElement
 
 
-class ActionIntroduce(Action):
+class ActionShowMenu(Action):
     def name(self) -> Text:
-        return 'act_menu'
+        return 'act_show_menu'
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,

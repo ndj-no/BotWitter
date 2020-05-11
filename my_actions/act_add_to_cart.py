@@ -3,16 +3,12 @@ from typing import Text, Dict, Any, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-from my_fb_api.HorizontalTemplate import HorizontalTemplateElement, HorizontalTemplate
 from my_fb_api.QuickRepliesTemplate import QuickReplyElement, QuickReplies
-from my_fb_api.button import PostBackButton, UrlButton
-from my_models.detail_shoe import DetailShoe
 from my_models.user import User
 from my_utils import SqlUtils, debug
 from my_utils.entitie_name import Entities
 from my_utils.error_code import ErrorCode
-from my_utils.price_format import price_format
-from my_web_setting.my_web_url import MyWebUrl, MyWebApi
+from my_web_setting.my_web_url import MyWebApi
 
 
 class ActionAddToCart(Action):

@@ -4,11 +4,8 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 
-from my_utils import SqlUtils
-from my_utils.debug import debug
-from my_utils.entitie_name import Entities
-from my_utils.text_vi import remove_accents
 from my_models.color import Color
+from my_utils.entitie_name import Entities
 
 
 class ActionSetColorId(Action):
