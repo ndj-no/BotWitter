@@ -39,7 +39,43 @@ class ActionShowHotShoe(Action):
 
         err_message = f'Xin lỗi {prefix_name}{customer_name}, hệ thống đã xảy ra lỗi. '
 
-        query = 'SELECT * FROM HOT_SHOES'
+        query = '''     
+            select distinct 
+                mainapp_shoe.id as shoe_id, 
+                mainapp_shoe.shoeName,
+                mainapp_shoe.shoeModel,
+                mainapp_shoe.viewCount, 
+                mainapp_shoe.quantitySold, 
+                mainapp_shoe.favouriteCount, 
+                mainapp_shoe.shoeThumbnail,
+                mainapp_category.categoryName,
+                mainapp_detailshoe.newPrice,
+                sum(mainapp_detailshoe.quantityAvailable) as totalQuantityAvailable,
+                (mainapp_shoe.viewCount + mainapp_shoe.quantitySold + mainapp_shoe.favouriteCount) as hotCount,
+                datediff(curdate(), mainapp_shoe.dateCreated) as days,
+                ((mainapp_shoe.viewCount + mainapp_shoe.quantitySold + mainapp_shoe.favouriteCount)/datediff(curdate(), mainapp_shoe.dateCreated)) as hotRate
+            from mainapp_shoe 
+                inner join mainapp_detailshoe 
+                    on mainapp_shoe.id = mainapp_detailshoe.shoe_id
+                inner join mainapp_category
+                    on mainapp_shoe.category_id = mainapp_category.id
+            where 
+                active = 1 
+            group by 
+                mainapp_shoe.id, 
+                mainapp_shoe.shoeName,
+                mainapp_shoe.shoeModel,
+                mainapp_shoe.viewCount, 
+                mainapp_shoe.quantitySold, 
+                mainapp_shoe.favouriteCount, 
+                mainapp_shoe.shoeThumbnail,
+                mainapp_category.categoryName,
+                mainapp_detailshoe.newPrice
+            having
+                totalQuantityAvailable > 0
+            order by hotRate desc
+            limit 0, 5;    
+        '''
         shoes = SqlUtils.get_result(query, Shoe)
         detail_shoes = SqlUtils.get_result(query, DetailShoe)
 

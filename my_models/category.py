@@ -19,19 +19,19 @@ class Category:
         self.__dict__.update(data)
 
     @staticmethod
-    def get_type_by_name(category_name: Text):
+    def get_id_by_name(category_name: Text):
         name2id = get_mapping_category2id()
-        category_type = name2id.get(remove_accents(category_name.strip()))
+        category_id = name2id.get(remove_accents(category_name.strip()))
 
         # neu co trong mapping thi return
-        if category_type is not None:
-            return category_type
+        if category_id is not None:
+            return category_id
 
         # else split and return if not None
         for text in remove_accents(category_name.strip()).split():
-            category_type = name2id.get(text)
-            if category_type is not None:
-                return category_type
+            category_id = name2id.get(text)
+            if category_id is not None:
+                return category_id
 
         # None if nothing in
         return None
@@ -49,7 +49,7 @@ class Category:
             Entities.shoe_category: f'{Category.TABLE_NAME}.{Category.COL_ID} = ',
         }
         k = where.get(att)
-        v = Category.get_type_by_name(value)
+        v = Category.get_id_by_name(value)
         if k is not None and v is not None:
             return k + str(v)
         return ''

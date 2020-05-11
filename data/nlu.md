@@ -194,6 +194,7 @@
 - t có đc giảm giá k?
 
 ## intent:ask_shoes_by_category
+- cho a xem loại giày [thể thao](shoe_category)
 - cho mình xem giày [bata](shoe_category) đi
 - bạn có bán giày [cao gót](shoe_category) không?
 - bạn có giày [cao gót](shoe_category) không?

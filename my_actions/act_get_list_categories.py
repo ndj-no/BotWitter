@@ -3,6 +3,7 @@ from typing import Text, Dict, Any, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
+from my_fb_api.QuickRepliesTemplate import QuickReplyElement, QuickReplies
 from my_models.category import Category
 from my_utils import SqlUtils
 from my_utils.debug import debug
@@ -25,6 +26,7 @@ class ActionGetListCategory(Action):
         prefix_name = tracker.get_slot(Entities.customer_name)
         customer_name = tracker.get_slot(Entities.customer_name)
         bot_position = tracker.get_slot(Entities.bot_position)
+        shoe_category = tracker.get_slot(Entities.shoe_category)
 
         query = f'SELECT * FROM {Category.TABLE_NAME}'
         categories = SqlUtils.get_result(query, Category)
@@ -33,11 +35,17 @@ class ActionGetListCategory(Action):
                       + bot_position + ' không tìm thấy category nào trong cơ sở dữ liệu.'
             dispatcher.utter_message(message)
         else:
-            message = 'Tìm thấy ' + str(len(categories)) + ' KQ.'
-            count = 1
+            quick_reply_elements = []
             for category in categories:
-                message += '\n' + str(count) + '.' + category.name
-            dispatcher.utter_message(message)
-        debug('query\n', query)
-        debug('tìm thấy ' + str(len(categories)) + ' KQ')
+                element = QuickReplyElement(
+                    content_type=QuickReplyElement.TEXT,
+                    title=category.categoryName,
+                    payload=f'cho a xem loại giày {category.categoryName}'
+                )
+                quick_reply_elements.append(element)
+            quick_reply_template = QuickReplies(
+                text_before_template=f'Hiện bên {bot_position} có những loại này. Mời {prefix_name} chọn:',
+                list_quick_reply_elements=quick_reply_elements
+            )
+            dispatcher.utter_message(json_message=quick_reply_template.to_json_message())
         return []
