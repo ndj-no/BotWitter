@@ -24,8 +24,8 @@
     
 ## simple path 2
 * deny
-  - act_show_user_id
+  - act_place_order
 
 ## path 2
 * affirm
-  - act_show_receipt
+  - act_show_receipt_preview

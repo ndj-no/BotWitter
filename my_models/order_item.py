@@ -1,10 +1,10 @@
 class OrderItem:
     def __init__(self, data):
-        self.id = None
+        self.orderItem_id = None
         self.orderPackage_id = None
         self.detailShoe_id = None
         self.quantity = None
-        self.unitPrice = None
+        self.itemPrice = None
         self.__dict__.update(data)
 
     def __str__(self):

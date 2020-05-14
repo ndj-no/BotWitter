@@ -3,7 +3,7 @@ from typing import Text, Dict, Any, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-from my_fb_api.QuickRepliesTemplate import QuickReplyElement, QuickReplies
+from my_fb_api.quick_replies_template import QuickReplyElement, QuickReplies
 from my_models.color import Color
 from my_utils import SqlUtils
 from my_utils.debug import debug_print_content

@@ -32,9 +32,10 @@ actions:
   - act_add2cart_or_order
   - act_get_list_category
   - act_get_shoes_by_category
-  - act_show_receipt
+  - act_show_receipt_preview
   - act_test_anything
   - act_show_user_id
+  - act_place_order
 
 entities:
   - bot_position

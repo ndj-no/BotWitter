@@ -41,13 +41,22 @@
 # from my_utils.entitie_name import Entities
 
 
-from my_actions.act_show_shoes_by_category import ActionShowShoesByCategory
-from my_actions.act_show_receipt import ActionShowReceipt
-from my_actions.act_show_list_categories import ActionGetListCategory
-from my_actions.act_save_name import ActionSaveName
-from my_actions.act_test_anything import ActionTestAnything
-from my_actions.act_show_menu import ActionIntroduce
-from my_actions.act_show_hot_shoes import ActionShowHotShoes
-from my_actions.act_show_new_shoes import ActionShowNewShoes
+# do NOT optimize imports
+
+from my_actions.act_add2cart_or_buy_now import ActionAdd2CartOrBuyNow
+from my_actions.act_add_to_cart import ActionAddToCart
 from my_actions.act_choose_color import ActionChooseColor
-from my_actions.act_show_user_id import ActionShowUserId
+from my_actions.act_choose_size import ActionChooseSize
+from my_actions.act_place_order import ActionPlaceOrder
+from my_actions.act_register_user import ActionRegisterUser
+from my_actions.act_save_name import ActionSaveName
+from my_actions.act_set_color_id import ActionSetColorId
+from my_actions.act_set_coupon_id import ActionSetCouponId
+from my_actions.act_set_shoe_id import ActionSetShoeId
+from my_actions.act_show_coupons import ActionShowCoupons
+from my_actions.act_show_hot_shoes import ActionShowHotShoes
+from my_actions.act_show_list_categories import ActionShowListCategory
+from my_actions.act_show_menu import ActionShowMenu
+from my_actions.act_show_new_shoes import ActionShowNewShoes
+from my_actions.act_show_receipt_preview import ActionShowReceiptPreview
+from my_actions.act_show_shoes_by_category import ActionShowShoesByCategory

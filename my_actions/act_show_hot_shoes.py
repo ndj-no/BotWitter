@@ -3,8 +3,8 @@ from typing import Text, Dict, Any, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-from my_fb_api.HorizontalTemplate import HorizontalTemplate
-from my_fb_api.QuickRepliesTemplate import QuickReplyElement, QuickReplies
+from my_fb_api.horizontal_template import HorizontalTemplate
+from my_fb_api.quick_replies_template import QuickReplyElement, QuickReplies
 from my_models.detail_shoe import DetailShoe
 from my_models.shoe import Shoe
 from my_utils import SqlUtils

@@ -45,7 +45,7 @@ class ButtonTemplate(BaseTemplate):
                 "type": "template",
                 "payload": {
                     "template_type": "button",
-                    "text": "What do you want to do next?",
+                    "text": self.text,
                     "buttons": buttons
                 }
             }

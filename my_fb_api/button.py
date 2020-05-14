@@ -30,15 +30,22 @@ class PostBackButton(Button):
 
 
 class UrlButton(Button):
-    def __init__(self, title, url_access):
+    COMPACT = 'compact'
+    TALL = 'tall'
+    FULL = 'full'
+
+    def __init__(self, title, url_access, webview_height_ratio=TALL):
         super().__init__()
         self.title = title
         self.action_value = url_access
+        self.webview_height_ratio = webview_height_ratio
 
     def to_dict(self) -> Dict:
         button = {
             "type": "web_url",
             "url": self.action_value,
             "title": self.title,
+            # "messenger_extensions": True,
+            "webview_height_ratio": self.webview_height_ratio
         }
         return button
