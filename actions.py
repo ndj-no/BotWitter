@@ -34,23 +34,22 @@
 # from my_models.category import Category
 # from rasa_sdk.events import SlotSet
 #
-# from my_models.shoe import Shoe
-# from my_utils.text_vi import no_accent
-#
-# from my_utils import SqlUtils
-# from my_utils.entitie_name import Entities
 
 
 # do NOT optimize imports
 
+from my_actions.act_show_cart import ActionShowCart
 from my_actions.act_add2cart_or_buy_now import ActionAdd2CartOrBuyNow
 from my_actions.act_add_to_cart import ActionAddToCart
 from my_actions.act_choose_color import ActionChooseColor
 from my_actions.act_choose_size import ActionChooseSize
+from my_actions.act_check_size import ActionCheckSize
+from my_actions.act_confirm_order import ActionConfirmOrder
 from my_actions.act_place_order import ActionPlaceOrder
 from my_actions.act_register_user import ActionRegisterUser
 from my_actions.act_save_name import ActionSaveName
 from my_actions.act_set_color_id import ActionSetColorId
+from my_actions.act_check_color import ActionCheckColor
 from my_actions.act_set_coupon_id import ActionSetCouponId
 from my_actions.act_set_shoe_id import ActionSetShoeId
 from my_actions.act_show_coupons import ActionShowCoupons

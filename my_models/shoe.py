@@ -13,6 +13,7 @@ class Shoe:
         self.viewCount = None
         self.favouriteCount = None
         self.shoeDesc = None
+        self.image_static = None
         self.__dict__.update(data)
 
     def __str__(self):

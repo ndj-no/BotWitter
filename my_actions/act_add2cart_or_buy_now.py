@@ -33,14 +33,19 @@ class ActionAdd2CartOrBuyNow(Action):
         """
         # debug('\n_________act_shoe_new_shoe_________')
 
+        print('_____' + self.name())
+
         prefix_name = tracker.get_slot(Entities.prefix_name)
         customer_name = tracker.get_slot(Entities.customer_name)
+        messenger_id = tracker.current_state()["sender_id"]
         bot_position = tracker.get_slot(Entities.bot_position)
         shoe_id = tracker.get_slot(Entities.shoe_id)
         shoe_model = tracker.get_slot(Entities.shoe_model)
         shoe_size = tracker.get_slot(Entities.shoe_size)
         color_id = tracker.get_slot(Entities.color_id)
         color_name = tracker.get_slot(Entities.shoe_color)
+        coupon_id = tracker.get_slot(Entities.coupon_id)
+        coupon_code = tracker.get_slot(Entities.coupon_code)
 
         # get_final_shoe(shoe_id int, shoe_size int, color_id int)
         # query = 'call get_final_shoe({}, {}, {})'.format(shoe_id, shoe_size, color_id)
@@ -50,6 +55,7 @@ class ActionAdd2CartOrBuyNow(Action):
                 mainapp_shoe.shoeName,
                 mainapp_shoe.shoeModel,
                 mainapp_shoe.shoeThumbnail,
+                mainapp_shoe.image_static,
                 mainapp_detailshoe.id as detailShoe_id,
                 mainapp_detailshoe.newPrice,
                 mainapp_detailshoe.quantityAvailable,
@@ -92,17 +98,16 @@ class ActionAdd2CartOrBuyNow(Action):
                 buttons = [
                     PostBackButton(
                         title='Thêm vào giỏ hàng' + shoe.shoeModel,
-                        str_send_to_webhook='thêm vào giỏ hàng'
+                        str_send_to_webhook='ok luôn. thêm vào giỏ hàng'
                     ),
-                    UrlButton(
-                        title='Mua luôn đôi này',
-                        url_access=MyWebUrl.get_detail_shoe_url(shoe.shoe_id)
-                    ),
+                    # UrlButton(
+                    #     title='Mua luôn đôi này',
+                    #     url_access=MyWebUrl.get_buy_now_url(messenger_id=messenger_id,
+                    #                                         detail_shoe_id=detail_shoe.detailShoe_id)
+                    # ),
                 ]
-
                 element = HorizontalTemplateElement(
-                    image_url=MyWebUrl.get_shoe_image_url(shoe.shoeThumbnail),
-                    # image_url='https://www.w3schools.com/w3css/img_lights.jpg',
+                    image_url=shoe.image_static,
                     title=shoe.shoeName,
                     subtitle=f'màu: {color_name}, size: {shoe_size}\n ' + price_format(detail_shoe.newPrice),
                     default_action=HorizontalTemplateElement.DefaultAction(MyWebUrl.get_detail_shoe_url(shoe.shoe_id)),
@@ -114,11 +119,17 @@ class ActionAdd2CartOrBuyNow(Action):
 
             # xem tiep
             quick_reply_elements = [
-                QuickReplyElement(QuickReplyElement.TEXT, 'Xem giỏ hàng', 'cho xem giỏ hàng'),
-                QuickReplyElement(QuickReplyElement.TEXT, 'Xem lại menu', 'tôi muốn xem menu'),
+                QuickReplyElement(QuickReplyElement.TEXT, 'Xem thêm giày', 'Xem đôi giày khác'),
             ]
-            quick_replies = QuickReplies(text_before_template='Tùy chọn khác',
-                                         list_quick_reply_elements=quick_reply_elements)
+            text = 'Hành động khác:'
+            # if not coupon_id:
+            #     text = '{} có muốn lấy mã giảm giá không ạ?'.format(prefix_name)
+            #     quick_reply_elements.append(
+            #         QuickReplyElement(QuickReplyElement.TEXT, 'Lấy mã giảm giá', 'cho tôi xem mã giảm giá'),
+            #     )
+            quick_replies = QuickReplies(
+                text_before_template=text,
+                list_quick_reply_elements=quick_reply_elements)
             dispatcher.utter_message(json_message=quick_replies.to_json_message())
 
             # print('*****************************************************')

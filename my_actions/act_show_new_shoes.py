@@ -27,14 +27,36 @@ class ActionShowNewShoes(Action):
         :param domain:
         :return:
         """
-        # debug('\n_________act_shoe_new_shoe_________')
+        print('_____' + self.name())
 
         prefix_name = tracker.get_slot(Entities.prefix_name)
         customer_name = tracker.get_slot(Entities.customer_name)
         bot_position = tracker.get_slot(Entities.bot_position)
 
-        query = 'SELECT * FROM NEW_SHOES'
+        query = f'''
+        select distinct 
+            mainapp_shoe.id as shoe_id, 
+            mainapp_shoe.shoeName,
+            mainapp_shoe.shoeModel,
+            mainapp_shoe.shoeThumbnail,
+            mainapp_shoe.dateCreated,
+            mainapp_shoe.image_static,
+            mainapp_shoe.viewCount, 
+            mainapp_shoe.quantitySold, 
+            mainapp_shoe.favouriteCount, 
+            mainapp_category.categoryName,
+            mainapp_detailshoe.newPrice
+        from mainapp_shoe 
+            inner join mainapp_detailshoe 
+                on mainapp_shoe.id = mainapp_detailshoe.shoe_id
+            inner join mainapp_category
+                on mainapp_shoe.category_id = mainapp_category.id
+        where active = 1
+        order by dateCreated desc
+        limit 0, 5;
+        '''
         shoes = SqlUtils.get_result(query, Shoe)
+        shoes: List[Shoe]
         detail_shoes = SqlUtils.get_result(query, DetailShoe)
         if len(detail_shoes) == 0 or len(shoes) == 0:
             err_code = ErrorCode.ERR_IN_ACT_GET_NEW_SHOE
@@ -43,6 +65,8 @@ class ActionShowNewShoes(Action):
         else:
             dispatcher.utter_message(
                 text='Đây là 5 đôi bên ' + bot_position + ' mới nhập đó ' + prefix_name + customer_name)
+            dispatcher.utter_message(
+                text=f'Đôi mới nhất được nhập từ ngày {shoes[0].dateCreated}, mời {prefix_name} xem:')
             # horizontal_template_elements = []
             # for index in range(len(shoes)):
             #     shoe = shoes[index]
@@ -70,15 +94,15 @@ class ActionShowNewShoes(Action):
             #     horizontal_template_elements.append(element)
             # horizontal_template = HorizontalTemplate(horizontal_template_elements)
 
-            horizontal_template = HorizontalTemplate.from_shoes_shoe_detail_shoe(shoes=shoes, detail_shoes=detail_shoes)
+            horizontal_template = HorizontalTemplate.from_shoes_detail_shoe(shoes=shoes, detail_shoes=detail_shoes)
             dispatcher.utter_message(json_message=horizontal_template.to_json_message())
 
             # xem tiep
             quick_reply_elements = [
                 QuickReplyElement(QuickReplyElement.TEXT, 'Xem thêm', 'còn đôi nào khác k?'),
-                QuickReplyElement(QuickReplyElement.TEXT, 'Xem lại menu', 'tôi muốn xem menu'),
+                QuickReplyElement(QuickReplyElement.TEXT, 'Thôi', 'tôi muốn xem menu'),
             ]
-            quick_replies = QuickReplies(text_before_template='Tùy chọn khác',
+            quick_replies = QuickReplies(text_before_template='Xin hãy chọn một hành động',
                                          list_quick_reply_elements=quick_reply_elements)
             dispatcher.utter_message(json_message=quick_replies.to_json_message())
         return []

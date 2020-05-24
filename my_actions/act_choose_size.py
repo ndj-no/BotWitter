@@ -1,6 +1,7 @@
 from typing import Text, Dict, Any, List
 
 from rasa_sdk import Action, Tracker
+from rasa_sdk.events import FollowupAction
 from rasa_sdk.executor import CollectingDispatcher
 
 from my_fb_api.quick_replies_template import QuickReplyElement, QuickReplies
@@ -28,7 +29,7 @@ class ActionChooseSize(Action):
         :param domain:
         :return:
         """
-        debug_print_content('__________act_choose_size___________')
+        print('_____' + self.name())
 
         prefix_name = tracker.get_slot(Entities.prefix_name)
         customer_name = tracker.get_slot(Entities.customer_name)
@@ -36,27 +37,27 @@ class ActionChooseSize(Action):
         shoe_id = tracker.get_slot(Entities.shoe_id)
         shoe_model = tracker.get_slot(Entities.shoe_model)
         shoe_color = tracker.get_slot(Entities.shoe_color)
-        color_id = tracker.get_slot(Entities.shoe_id)
+        color_id = tracker.get_slot(Entities.color_id)
 
         # have not chosen shoe yet
         if shoe_model is None and shoe_id is None:
             err_message = f'Xin lỗi {customer_name}, {prefix_name} chưa chọn giày.'
             dispatcher.utter_message(text=err_message)
-            return []
+            return [FollowupAction('act_show_menu')]
 
-        if color_id:
-            # noinspection SqlNoDataSourceInspection
-            query = f'''
-                        select size 
-                        from mainapp_shoe 
-                            inner join mainapp_detailshoe
-                                on mainapp_detailshoe.shoe_id = mainapp_shoe.id
-                            where mainapp_shoe.id = {shoe_id} 
-                                and mainapp_detailshoe.color_id = {color_id}
-                                and mainapp_detailshoe.quantityAvailable > 0;  
-                    '''
+        # if color_id:
+        # noinspection SqlNoDataSourceInspection
+        query = f'''
+                    select size 
+                    from mainapp_shoe 
+                        inner join mainapp_detailshoe
+                            on mainapp_detailshoe.shoe_id = mainapp_shoe.id
+                        where mainapp_shoe.id = {shoe_id} 
+                            and mainapp_detailshoe.color_id = {color_id}
+                            and mainapp_detailshoe.quantityAvailable > 0;  
+        '''
 
-        debug_print_content('query: ' + query)
+        # debug_print_content('query: ' + query)
 
         detail_shoes = SqlUtils.get_result(query, DetailShoe)
 
@@ -72,7 +73,7 @@ class ActionChooseSize(Action):
                 QuickReplyElement(
                     content_type=QuickReplyElement.TEXT,
                     title=str(detail_shoe.size),
-                    payload=f'mình lấy size {detail_shoe.size}',
+                    payload=f'lấy size {detail_shoe.size}',
                 )
             )
 
@@ -81,11 +82,11 @@ class ActionChooseSize(Action):
         elif len(detail_shoes) == 1:
             text = f'Đôi {shoe_model} chỉ còn size này thôi {prefix_name} ạ:'
         else:
-            text = f'Mời {prefix_name} chọn size:'.capitalize()
+            text = f'{prefix_name} muốn lấy size nào?'.capitalize()
         quick_replies = QuickReplies(text_before_template=text,
                                      list_quick_reply_elements=quick_reply_elements)
         dispatcher.utter_message(json_message=quick_replies.to_json_message())
-        debug_print_content('quick_replies')
-        debug_print_content(quick_replies.to_json_message())
+        # debug_print_content('quick_replies')
+        # debug_print_content(quick_replies.to_json_message())
 
         return []

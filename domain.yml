@@ -2,17 +2,20 @@ intents:
   - greet
   - introduce
   - ask_view_menu
-  - ask_find_shoe
+  - ask_finding_shoe
+  - ask_specific_shoe
+  - ask_list_category
   - ask_new_shoe
   - ask_hot_shoe
   - ask_coupon
-  - ask_specific_shoe
-  - ask_list_category
+  - ask_save_coupon
   - ask_shoes_by_category
   - ask_shoe_by_color
   - ask_shoe_by_size
-  - ask_ok_this_shoe
-  - ask_shoe_image
+  - ask_add_to_cart
+  - ask_view_cart
+  - ask_edit_cart
+  - ask_shoe_next
   - goodbye
   - thank
   - affirm
@@ -20,22 +23,30 @@ intents:
   - bot_challenge
   - ask_help
   - ask_name
-  - ask_view_cart
+  - ask_place_order
 
 actions:
-  - act_save_name
-  - act_menu
-  - act_show_new_shoe
-  - act_show_hot_shoe
-  - act_chose_color
-  - act_chose_size
-  - act_add2cart_or_order
-  - act_get_list_category
-  - act_get_shoes_by_category
-  - act_show_receipt_preview
-  - act_test_anything
-  - act_show_user_id
+  - act_add2cart_or_buy_now
+  - act_add_to_cart
+  - act_choose_color
+  - act_check_color
+  - act_choose_size
+  - act_check_size
+  - act_show_cart
+  - act_confirm_order
   - act_place_order
+  - act_register_user
+  - act_save_name
+  - act_set_color_id
+  - act_set_coupon_id
+  - act_set_shoe_id
+  - act_show_coupons
+  - act_show_hot_shoes
+  - act_show_list_category
+  - act_show_menu
+  - act_show_new_shoes
+  - act_show_receipt_preview
+  - act_show_shoes_by_category
 
 entities:
   - bot_position
@@ -50,15 +61,13 @@ entities:
   - coupon_code
   - coupon_id
   - shoe_category
-  - shoe_image
   - shoe_quantity
-  - shoe_cart_position
 
 slots:
   bot_position:
     auto_fill: true
     type: text
-    initial_value: 'Witter Shoe'
+    initial_value: 'Bot'
   prefix_name:
     auto_fill: true
     type: text
@@ -67,13 +76,13 @@ slots:
     auto_fill: true
     type: text
     initial_value: ''
-  shoe_name:
-    auto_fill: true
-    type: text
   shoe_id:
     auto_fill: true
     type: text
   shoe_model:
+    auto_fill: true
+    type: text
+  shoe_name:
     auto_fill: true
     type: text
   shoe_size:
@@ -110,5 +119,19 @@ responses:
     - text: "Xin chào {prefix_name}{customer_name}. {bot_position} có thể giúp gì được cho {prefix_name} ạ?"
     - text: "Dạ không biết {prefix_name}{customer_name} cần gì ạ?"
 
+  utter_thank:
+    - text: "Cám ơn quý khách đã sử dụng dịch vụ."
+
   utter_not_provide_category:
     - text: "Không biết {prefix_name}{customer_name} muốn xem loại giày gì?"
+
+
+  utter_hdsd:
+    - text: "Quý khách vui lòng truy cập đường dẫn sau để biết thêm chi tiết\nhttp://127.0.0.1:8000/about_us/hdsd_bot/"
+
+  utter_default:
+    - text: "Xin lỗi, {bot_position} không hiểu ý định của {prefix_name}."
+    - text: "Xin lỗi {prefix_name}, câu này khó quá {bot_position} không hiểu được."
+    - text: "Xin lỗi {prefix_name}, yêu cầu này khó quá {bot_position} không thực hiện được."
+    - text: "Xin lỗi {prefix_name}, {bot_position} chưa được lập trình để thực hiện chức năng này."
+

@@ -15,12 +15,14 @@ class ActionRegisterUser(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        print('_____' + self.name())
+
         customer_name = tracker.get_slot(Entities.customer_name)
         customer_id = tracker.current_state()["sender_id"]
 
         debug.debug_print_content('________create user________')
         debug.debug_print_content(f'messenger id: {customer_id}')
         debug.debug_print_content(f'customer name: {customer_name}')
-        debug.debug_print_content(MyWebApi.create_messenger_user(customer_id, customer_name))
+        debug.debug_print_content(MyWebApi.create_messenger_user(customer_id, str(customer_name) + str(customer_id)))
         debug.debug_print_content()
         return []

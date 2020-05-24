@@ -149,7 +149,7 @@ class HorizontalTemplate(BaseTemplate):
         return message
 
     @classmethod
-    def from_shoes_shoe_detail_shoe(cls, shoes: List[Shoe], detail_shoes: List[DetailShoe]):
+    def from_shoes_detail_shoe(cls, shoes: List[Shoe], detail_shoes: List[DetailShoe]):
         horizontal_template_elements = []
         for index in range(len(shoes)):
             shoe = shoes[index]
@@ -157,17 +157,19 @@ class HorizontalTemplate(BaseTemplate):
 
             buttons = [
                 PostBackButton(
-                    title='Xem đôi này ' + shoe.shoeModel,
+                    title='Lấy đôi ' + shoe.shoeModel,
                     str_send_to_webhook='tôi muốn xem mẫu ' + shoe.shoeModel
                 ),
                 UrlButton(
                     title='Xem trên website',
+                    # url_access=MyWebUrl.get_detail_shoe_url(shoe.shoe_id)
                     url_access=MyWebUrl.get_detail_shoe_url(shoe.shoe_id)
                 ),
             ]
 
             element = HorizontalTemplateElement(
-                image_url=MyWebUrl.get_shoe_image_url(shoe.shoeThumbnail),
+                image_url=shoe.image_static,
+                # image_url=MyWebUrl.get_shoe_image_url(shoe.image_static),
                 # image_url='https://www.w3schools.com/w3css/img_lights.jpg',
                 title=shoe.shoeName,
                 subtitle=price_format(detail_shoe.newPrice),

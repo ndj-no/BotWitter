@@ -21,7 +21,8 @@ class ActionShowListCategory(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        debug('\n_________action_find_list_category_________')
+        print('_____' + self.name())
+
 
         prefix_name = tracker.get_slot(Entities.customer_name)
         customer_name = tracker.get_slot(Entities.customer_name)

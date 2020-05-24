@@ -3,8 +3,9 @@ from time import time
 import requests
 
 LOCAL_URL = 'http://127.0.0.1:8000'
+# GLOBAL_URL = LOCAL_URL
 
-GLOBAL_URL = 'https://b534c540.ngrok.io' \
+GLOBAL_URL = '    https://74ac8e57.ngrok.io' \
     .strip()
 
 API_KEY = "123@abc"
@@ -29,7 +30,11 @@ class MyWebUrl:
 
     @staticmethod
     def get_buy_now_url(messenger_id, detail_shoe_id):
-        return f'{GLOBAL_URL}/cart/{messenger_id}/{detail_shoe_id}/'
+        return f'{GLOBAL_URL}/cart/messenger_user/buy_now/{messenger_id}/{detail_shoe_id}/'
+
+    @staticmethod
+    def get_edit_cart_url(messenger_id):
+        return f'{GLOBAL_URL}/cart/messenger_user_cart/edit/{messenger_id}/'
 
     @staticmethod
     def get_edit_contact_info_url(messenger_id):

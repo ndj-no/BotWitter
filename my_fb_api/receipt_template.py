@@ -28,7 +28,8 @@ class ReceiptElementPreview(BaseElement):
             "quantity": self.cart.quantityOnCart,
             "price": self.detail_shoe.newPrice,
             "currency": "VND",
-            "image_url": MyWebUrl.get_shoe_image_url(self.shoe.shoeThumbnail)
+            # "image_url": MyWebUrl.get_shoe_image_url(self.shoe.shoeThumbnail)
+            "image_url": self.shoe.image_static
         }
         return data
 
@@ -124,7 +125,8 @@ class ReceiptElement(BaseElement):
             "quantity": self.order_item.quantity,
             "price": self.order_item.itemPrice,
             "currency": "VND",
-            "image_url": MyWebUrl.get_shoe_image_url(self.shoe.shoeThumbnail)
+            # "image_url": MyWebUrl.get_shoe_image_url(self.shoe.shoeThumbnail)
+            "image_url": self.shoe.image_static
         }
         return data
 

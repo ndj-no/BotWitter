@@ -16,6 +16,8 @@ class ActionSaveName(Action):
     def run(self, dispatcher: CollectingDispatcher
             , tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        print('_____' + self.name())
+
         prefix_name = next(tracker.get_latest_entity_values(Entities.prefix_name), None)
         customer_name = next(tracker.get_latest_entity_values(Entities.customer_name), None)
 

@@ -17,7 +17,7 @@ class Color:
 
     @staticmethod
     def get_id_by_color_name(color_name: Text):
-        color_name = remove_accents(color_name)
+        color_name = remove_accents(color_name).lower()
         name2id = get_mapping_color2id()
         color_id = name2id.get(color_name.strip())
         # neu co trong mapping thi return

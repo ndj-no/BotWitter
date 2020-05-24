@@ -20,6 +20,7 @@ class ActionShowShoesByCategory(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        print('_____' + self.name())
 
         prefix_name = tracker.get_slot(Entities.prefix_name)
         customer_name = tracker.get_slot(Entities.customer_name)
@@ -46,11 +47,10 @@ class ActionShowShoesByCategory(Action):
                 mainapp_shoe.id as shoe_id, 
                 mainapp_shoe.shoeName,
                 mainapp_shoe.shoeModel,
+                mainapp_shoe.image_static,
                 mainapp_shoe.shoeThumbnail,
                 mainapp_category.categoryName,
-                mainapp_detailshoe.id as detailShoe_id,
-                min(mainapp_detailshoe.newPrice) as newPrice,
-                sum(mainapp_detailshoe.quantityAvailable) as totalQuantityAvailable
+                min(mainapp_detailshoe.newPrice) as newPrice
             from mainapp_shoe 
                 inner join mainapp_detailshoe 
                     on mainapp_shoe.id = mainapp_detailshoe.shoe_id
@@ -66,21 +66,19 @@ class ActionShowShoesByCategory(Action):
                 mainapp_shoe.shoeThumbnail,
                 mainapp_category.categoryName,
                 mainapp_detailshoe.id
-            having
-                totalQuantityAvailable > 0
             limit 0, 5;    
         '''
         shoes, detail_shoes = SqlUtils.get_result(query, Shoe, DetailShoe)
 
         if len(shoes) == 0:
             message = 'Xin lỗi ' + prefix_name + customer_name \
-                      + '. Hiện ' + bot_position + ' không tìm thấy đôi giày ' + shoe_category + ' nào ạ'
+                      + '. Hiện cửa hàng không kinh doanh đôi giày ' + shoe_category + ' nào ạ'
             dispatcher.utter_message(message)
         else:
-            horizontal_template = HorizontalTemplate.from_shoes_shoe_detail_shoe(shoes=shoes, detail_shoes=detail_shoes)
+            horizontal_template = HorizontalTemplate.from_shoes_detail_shoe(shoes=shoes, detail_shoes=detail_shoes)
             dispatcher.utter_message(json_message=horizontal_template.to_json_message())
 
-        debug('query', query)
-        debug('tìm thấy ' + str(len(shoes)) + ' KQ')
+        # debug('query', query)
+        # debug('tìm thấy ' + str(len(shoes)) + ' KQ')
 
         return []

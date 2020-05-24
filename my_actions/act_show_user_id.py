@@ -11,6 +11,8 @@ class ActionShowUserId(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        print('_____' + self.name())
+
         user_id = tracker.sender_id
 
         dispatcher.utter_message(text=f'user id = {user_id}')

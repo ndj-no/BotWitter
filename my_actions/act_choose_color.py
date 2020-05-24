@@ -27,7 +27,7 @@ class ActionChooseColor(Action):
         :param domain:
         :return:
         """
-        debug_print_content('__________act_choose_color___________')
+        print('_____' + self.name())
 
         prefix_name = tracker.get_slot(Entities.prefix_name)
         customer_name = tracker.get_slot(Entities.customer_name)
@@ -62,18 +62,18 @@ class ActionChooseColor(Action):
                 QuickReplyElement(
                     QuickReplyElement.TEXT,
                     color.colorName,
-                    f'tôi lấy màu {color.colorName} color_id {color.color_id}',
+                    'tôi lấy màu {}'.format(color.colorName.lower()),
                     image_url=MyWebUrl.get_color_image('colors/red.png'))
             )
         if len(colors) == 1:
-            text = f'Bên {bot_position} chỉ còn màu này thôi {prefix_name} ạ:'
+            text = f'Bên cửa hàng {bot_position} chỉ còn màu này thôi {prefix_name} ạ:'
         else:
             text = prefix_name.capitalize() + ' hãy chọn một màu bên dưới:'
         quick_replies = QuickReplies(text_before_template=text,
                                      list_quick_reply_elements=quick_reply_elements)
         dispatcher.utter_message(json_message=quick_replies.to_json_message())
-        debug_print_content('quick_replies')
-        debug_print_content(quick_replies.to_json_message())
+        # debug_print_content('quick_replies')
+        # debug_print_content(quick_replies.to_json_message())
         # print('*****************************************************')
         # print(horizontal_template.to_json_message())
         # print('*****************************************************')

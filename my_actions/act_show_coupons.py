@@ -25,6 +25,7 @@ class ActionShowCoupons(Action):
         :param domain:
         :return:
         """
+        print('_____' + self.name())
 
         prefix_name = tracker.get_slot(Entities.prefix_name)
         customer_name = tracker.get_slot(Entities.customer_name)
@@ -51,8 +52,8 @@ class ActionShowCoupons(Action):
         for index, coupon in enumerate(coupons):
             buttons = [
                 PostBackButton(title='Lấy mã này', str_send_to_webhook=f'tôi lấy mã {coupon.couponCode}'),
-                # test button
-                UrlButton(title='Chi tiết', url_access=f'{MyWebUrl.get_detail_shoe_url(0)}')
+                # # test button
+                # UrlButton(title='Chi tiết', url_access=f'{MyWebUrl.get_detail_shoe_url(0)}')
             ]
             button_template = ButtonTemplate(f'Giảm {coupon.discountRate}%', buttons)
 

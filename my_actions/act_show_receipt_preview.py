@@ -23,6 +23,8 @@ class ActionShowReceiptPreview(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        print('_____' + self.name())
+
         messenger_id = tracker.current_state()['sender_id']
         coupon_id = tracker.get_slot(Entities.coupon_id)
 
@@ -31,7 +33,7 @@ class ActionShowReceiptPreview(Action):
 
         if user_api_result.status_code == 200:
             user = User(user_api_result.json())
-            print(user.__dict__)
+            # print(user.__dict__)
         else:
             dispatcher.utter_message(text='Lỗi khi call user api')
             return []
@@ -46,6 +48,7 @@ class ActionShowReceiptPreview(Action):
                 select
                     mainapp_shoe.shoeName,
                     mainapp_shoe.shoeThumbnail,
+                    mainapp_shoe.image_static,
                     mainapp_detailshoe.newPrice,
                     mainapp_detailshoe.size,
                     mainapp_color.colorName,

@@ -15,13 +15,13 @@ class ActionSetColorId(Action):
     def run(self, dispatcher: CollectingDispatcher
             , tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        print('_____' + self.name())
 
-        shoe_color = next(tracker.get_latest_entity_values(Entities.shoe_color), None)
-
+        shoe_color = tracker.get_slot(Entities.shoe_color)
+        print(shoe_color)
         color_id = Color.get_id_by_color_name(shoe_color)
-
+        print(color_id)
         if color_id is not None:
-            color_id = str(color_id)
             return [SlotSet(Entities.color_id, color_id)]
         else:
             return []
