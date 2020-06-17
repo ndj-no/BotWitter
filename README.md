@@ -14,7 +14,7 @@ $ rasa run actions
 $ rasa run --endpoints endpoints.yml --credentials credentials.yml
 ```
 
-tham khảo: ![miai.vn](https://www.miai.vn/tag/rasa/)
+tham khảo: [miai.vn](https://www.miai.vn/tag/rasa/)
 
 ## Một vài hình ảnh
 
