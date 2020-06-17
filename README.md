@@ -1,6 +1,6 @@
 # BotWitter
 
-Chatbot hỗ trợ bán hàng, chạy cùng với project ![https://github.com/ndj-no/WitterShoe-Django](https://github.com/ndj-no/WitterShoe-Django)
+Chatbot hỗ trợ bán hàng, chạy cùng với project [WitterShoe-Django](https://github.com/ndj-no/WitterShoe-Django)
 
 ## How to run
 1. Run project WitterShoe-Django
